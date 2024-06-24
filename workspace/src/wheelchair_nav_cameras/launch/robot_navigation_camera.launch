@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-  <arg name="map_file" default="$(find wheelchair_cartographer)/maps/hospital.yaml"/>
+  <arg name="map_file" default="$(find wheelchair_mapping)/maps/hospital.yaml"/>
   <arg name="cmd_vel_topic" default="navigation/cmd_vel" />
   <arg name="odom_topic" default="/odom" />
   <arg default="$(find xacro)/xacro --inorder '$(find wheelchair_description)/urdf/wheelchair.xacro'" name="urdf_file" />

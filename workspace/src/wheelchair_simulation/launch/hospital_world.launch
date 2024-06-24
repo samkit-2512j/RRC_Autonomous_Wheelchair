@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-  <arg name="x_pos" default="-8.6"/>
-  <arg name="y_pos" default="-4.1"/>
-  <arg name="z_pos" default="0.2"/>
+  <arg name="x_pos" default="0.000"/>
+  <arg name="y_pos" default="0.000"/>
+  <arg name="z_pos" default="0.0000000"/>
 
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
@@ -35,7 +35,7 @@
             use_inf: true
 
             # Concurrency level, affects number of pointclouds queued for processing and number of threads used
-            # 0 : Detect number of cores
+            # 0 : Detect number of cores 
             # 1 : Single threaded
             # 2->inf : Parallelism level
             concurrency_level: 0

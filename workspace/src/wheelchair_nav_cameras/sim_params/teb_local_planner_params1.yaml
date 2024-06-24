@@ -1,0 +1,46 @@
+TebLocalPlannerROS:
+
+  # Basic Time and Velocity Parameters
+  sim_time: 4.0
+  max_vel_x: 0.3
+  max_vel_theta: 0.3
+  max_vel_y: 0.0  # Usually, y velocities are not used in differential drive robots (assumed here)
+
+  # Acceleration and Deceleration
+  acc_lim_x: 0.1
+  acc_lim_theta: 1.4285
+  acc_lim_y: 0.0
+
+  # Goal Tolerance
+  xy_goal_tolerance: 0.4
+  yaw_goal_tolerance: 0.524
+
+  # Velocity Sampling
+  vxy_samples: 20
+  vtheta_samples: 40
+
+  # Obstacle Avoidance
+  min_obstacle_dist: 0.2  # This needs to be defined based on the robot size and safety requirements
+  inflation_dist: 0.6  # Adjust based on the robot's footprint and safety margin around obstacles
+
+  # Path Optimization
+  weight_max_vel_x: 2.0  # Scale for penalizing deviation from max velocity
+  weight_max_vel_theta: 1.0
+  weight_acc_lim_x: 1.0
+  weight_acc_lim_theta: 1.0
+  weight_kinematics_nh: 1000.0  # Non-holonomic movement penalty
+  weight_kinematics_forward_drive: 1.0  # Prefer forward driving
+  weight_kinematics_turning_radius: 1.0  # Penalty for a turning radius
+  weight_optimaltime: 1.0  # Optimization of trajectory execution time
+
+  # Robot Configuration Parameters
+  wheelbase: 1.0  # Distance between the wheels for differential drive robot (example value)
+
+  # Goal and Path Handling
+  global_plan_overwrite_orientation: true
+  allow_init_with_backwards_motion: false
+  global_plan_prune_distance: 0.1
+
+  # Visualization
+  publish_feedback: true
+  visualize_hc_graph: true  # Visualize the graph of homotopy classes
