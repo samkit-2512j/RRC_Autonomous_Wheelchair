@@ -1,0 +1,28 @@
+# old commands
+cd ..
+source .bashrc
+cd wheelchair
+source install_isolated/setup.bash
+
+roslaunch realsense2_camera rs_multiple_devices.launch serial_no_camera1:=142422250596 serial_no_camera2:=115422250059
+
+rosrun rosserial_python serial_node.py /dev/ttyACM0 _baud:=115200
+
+rosrun wheelchair_navigation odom_publisher
+
+rosrun wheelchair_simulation teleop.py
+
+catkin_make_isolated --install --use-ninja
+
+catkin_make_isolated --install --use-ninja --pkg package_name
+
+______________________
+
+# current commands
+
+roslaunch kangaroo_driver kangaroo_driver.launch
+roslaunch rplidar_ros rplidar_a3.launch 
+roslaunch wheelchair_mapping robot_state_publish.launch
+roslaunch wheelchair_nav_cameras angle_range_filter.launch
+roslaunch wheelchair_nav_cameras wheelchair_nav.launch
+rosrun kangaroo_driver teleop_cmd_vel.py
